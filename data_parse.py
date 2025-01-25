@@ -2,7 +2,8 @@ import requests
 import pprint
 import pandas as pd
 
-# "https://services1.arcgis.com/jUJYIo9tSA7EHvfZ/arcgis/rest/services/POSTFIRE_MASTER_DATA_SHARE/FeatureServer/0/query?where=1%3D1&outFields=Latitude,Longitude,DAMAGE,COUNTY,STRUCTURETYPE,STRUCTURECATEGORY,SITEADDRESS,ASSESSEDIMPROVEDVALUE&outSR=4326&f=json"
+url = "https://services1.arcgis.com/jUJYIo9tSA7EHvfZ/arcgis/rest/services/POSTFIRE_MASTER_DATA_SHARE/FeatureServer/0/query?where=1%3D1&outFields=Latitude,Longitude,DAMAGE,COUNTY,STRUCTURETYPE,STRUCTURECATEGORY,SITEADDRESS,ASSESSEDIMPROVEDVALUE&outSR=4326&f=json"
+
 def data_parse(url):
 # this is query url for API
     url = url
@@ -19,7 +20,6 @@ def data_parse(url):
     else:
         print("Error:", response.status_code)
 
-
     # features is a list of dictionaries of each entry
     # attributes is a list of dictionaries of each consisting of each data point (within feature dict)
     # geometry is a list of dictionaries of coordinates (within feature dict)
@@ -33,3 +33,5 @@ def data_parse(url):
     # pd.set_option('display.max_columns', None) # to view non truncated columns
     # print(df.head())
     # pprint.pprint(attributes_list)
+
+pprint.pprint(data_parse(url)['COUNTY'])
