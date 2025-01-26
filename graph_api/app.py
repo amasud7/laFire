@@ -22,10 +22,11 @@ for index, row in data.iterrows():
 sorted_cost_dict = dict(sorted(cost_dict.items()))
 
 # for fips data
-counties = pd.read_csv('fids.csv')
+counties = pd.read_csv('fips.csv')
 counties_dict = counties.set_index('COUNTY')['FIPS'].to_dict()
 counties_dict = dict(sorted(counties_dict.items()))
 counties_dict = {key: f"0{value}" for key, value in counties_dict.items()}
+
 actual_FIPS = []
 for county, fips in counties_dict.items():
     if county in keys:
@@ -35,7 +36,6 @@ for county, fips in counties_dict.items():
 @app.route('/damages_graph')
 def index():
     # Example data for counties in Los Angeles (replace with actual fire damage estimates)
-    counties = sorted(list(data['COUNTY'].unique()))
     fire_damage_cost = list(sorted_cost_dict.values())  # Example fire damage cost estimates
     county_fips = actual_FIPS  # FIPS codes for counties
 
@@ -60,7 +60,7 @@ def index():
     )
 
     fig.update_layout(
-        # title_text='Estimated Fire Damage Cost by County in Los Angeles',
+        title_text='Estimated Fire Damage Cost by County in Los Angeles',
         geo=dict(
             scope='usa',  # Focus on the USA
             showland=True,  # Show land
@@ -78,10 +78,7 @@ def index():
     graph_json = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
     return graph_json
-    # #return render_template('index.html', graph_json=graph_json)
-
-    # graphJSON = plotly.io.to_json(fig, pretty=True)
-    # return graphJSON
+    # return render_template('index.html', graph_json=graph_json)
 
 
 if __name__ == '__main__':
