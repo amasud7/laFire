@@ -39,7 +39,7 @@ function Learn() {
             open={Boolean(anchorEl)}
             onClose={handleMenuClose}
           >
-            <MenuItem onClick={() => { handleMenuClose(); window.location.href = '/port'; }}>Damages Report</MenuItem>
+            <MenuItem onClick={() => { handleMenuClose(); window.location.href = '/plot'; }}>Damages Report</MenuItem>
             <MenuItem onClick={handleMenuClose}>Learn About Fires</MenuItem>
           </Menu>
         </Toolbar>
