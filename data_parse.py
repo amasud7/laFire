@@ -34,4 +34,16 @@ def data_parse():
     # print(df.head())
     # pprint.pprint(attributes_list)
 
-# pprint.pprint(data_parse(url)['COUNTY'])
+# pprint.pprint(list(set(data_parse()['COUNTY'])))
+data = data_parse()
+keys = list(set(data_parse()['COUNTY']))
+values = []
+
+cost_dict = dict.fromkeys(keys, 0)
+
+for index, row in data.iterrows():
+    if pd.notna(row['ASSESSEDIMPROVEDVALUE']):
+        cost_dict[row['COUNTY']] += row['ASSESSEDIMPROVEDVALUE']
+
+
+print(cost_dict)

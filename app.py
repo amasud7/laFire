@@ -2,13 +2,16 @@ from flask import Flask, render_template
 import plotly.express as px
 import json
 import plotly
+from data_parse import data_parse
 
 app = Flask(__name__)
+
+data = data_parse() # gets data in dataframe
 
 @app.route('/')
 def index():
     # Example data for counties in Los Angeles (replace with actual fire damage estimates)
-    counties = ['Los Angeles', 'Orange', 'Ventura', 'San Bernardino', 'Riverside']
+    counties = list(data['COUNTY'].unique())
     fire_damage_cost = [50000000, 10000000, 7500000, 30000000, 15000000]  # Example fire damage cost estimates
     county_fips = ['06037', '06059', '06111', '06071', '06065']  # FIPS codes for counties
 
