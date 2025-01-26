@@ -39,7 +39,7 @@ function App() {
             open={Boolean(anchorEl)}
             onClose={handleMenuClose}
           >
-            <MenuItem onClick={() => { handleMenuClose(); window.location.href = '/Port'; }}>Damages Report</MenuItem>
+            <MenuItem onClick={() => { handleMenuClose(); window.location.href = '/Plot'; }}>Damages Report</MenuItem>
             <MenuItem onClick={() => { handleMenuClose(); window.location.href = '/Learn'; }}>Learn About Fires</MenuItem>
           </Menu>
         </Toolbar>
