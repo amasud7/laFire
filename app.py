@@ -4,6 +4,8 @@ import json
 import plotly
 import pandas as pd
 from data_parse import data_parse
+from plotly.subplots import make_subplots
+
 
 app = Flask(__name__)
 
@@ -40,19 +42,23 @@ def index():
         geojson="https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json",  # GeoJSON for counties
         locations=county_fips,  # County FIPS codes
         color=fire_damage_cost,  # Fire damage estimates (color scale)
+        locationmode="geojson-id",
         color_continuous_scale="Reds",  # Color scale for fire damages
         featureidkey="id",  # Make sure to use 'id' because the GeoJSON has FIPS as 'id'
-        scope='usa'  # Scope set to USA
     )
 
     # Customize the layout for zoom and pan
     fig.update_geos(
-        visible=False,  # Hide the base map
+        visible=True,  # Hide the base map
         fitbounds="locations",  # Fit the map to the specified counties
     )
 
     fig.update_layout(
-        title_text='Estimated Fire Damage Cost by County in Los Angeles',
+    geo_scope='usa',  # Set the map scope to USA
+    )
+
+    fig.update_layout(
+        # title_text='Estimated Fire Damage Cost by County in Los Angeles',
         geo=dict(
             scope='usa',  # Focus on the USA
             showland=True,  # Show land
@@ -60,10 +66,17 @@ def index():
         ),
     )
 
+    # Adds custom hover data
+    fig.update_traces(
+        hovertemplate='<b>%{customdata}</b><br>Damage: %{z}<extra></extra>',
+        customdata=[next((k for k, v in counties_dict.items() if v == county), 'Unknown') for county in county_fips],
+        selector=dict(type='choropleth'))
+
     # Convert Plotly graph to JSON for embedding in the template
     graph_json = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
     return render_template('index.html', graph_json=graph_json)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
