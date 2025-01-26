@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  background-image: url('./home-pg-bg.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .App-logo {
@@ -8,25 +12,31 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  background-image: url('./home-pg-bg.jpeg');
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
+  background-color: rgb(40 50 83 / 60%);
+  height: 10vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #d7b79b;
 }
 
+.Ember {
+  color: #d7b79b;
+  opacity: ;
+  flex-grow: 1 ;
+  text-align: left;
+  font-size: 1.25em;
+  font-family: url('./Noto_Sans/NotoSans-VariableFont_wdth\,wght.ttf'); 
+  font-weight: 700;
+}
 .App-link {
-  color: #61dafb;
+  color: #4bb2ce;
 }
 
 
 .content {
+  color: #EEE2DC;
   padding: 50px;
   max-height: calc(100vh - 64px); /* Adjust based on AppBar height */
   overflow-y: auto;

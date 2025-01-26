@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
@@ -23,13 +22,10 @@ function App() {
 
   return (
     <div className="App">
-      <AppBar position="static">
+      <AppBar position="static" className="App-header" style={{ backgroundColor: '#102f4d' }}>
         <Toolbar>
-          <Typography variant="h6">
+          <Typography variant="h6" edge="start" className="Ember">
             Ember
-          </Typography>
-          <Typography variant="h6" style={{ flexGrow: 1 }}>
-            Home
           </Typography>
           <IconButton edge="end" color="inherit" aria-label="menu" onClick={handleMenuClick}>
             <MenuIcon />
@@ -45,20 +41,11 @@ function App() {
         </Toolbar>
       </AppBar>
       <div className="content">
-        <Typography variant="h4" gutterBottom>
-          Ember
+        <Typography variant="h1" gutterBottom>
+          Our Mission
         </Typography>
-        <Typography variant="body1" paragraph>
-          Fire is a rapid oxidation of a material in the exothermic chemical process of combustion, releasing heat, light, and various reaction products. Fires can cause physical damage through burning.
-        </Typography>
-        <Typography variant="body1" paragraph>
-          Wildfires are uncontrolled fires that spread quickly and can cause significant damage to forests, wildlife, and human structures. They are often caused by lightning strikes or human activities.
-        </Typography>
-        <Typography variant="body1" paragraph>
-          Fire safety measures include having fire extinguishers, smoke detectors, and creating firebreaks in areas prone to wildfires. It's important to have an evacuation plan in case of a fire emergency.
-        </Typography>
-        <Typography variant="body1" paragraph>
-          Firefighters are trained professionals who respond to fire emergencies and work to extinguish fires, rescue people, and protect property. They use various tools and techniques to control and put out fires.
+        <Typography variant="h4" style={{ color: '#A6ACB8' }} paragraph>
+          To educate the public about the natural disasters and to assess the damages from specific incidents.
         </Typography>
       </div>
     </div>
