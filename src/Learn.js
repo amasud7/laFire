@@ -27,7 +27,7 @@ function Learn() {
         <div className="App">
             <AppBar position="static" className="App-header" style={{ backgroundColor: 'rgb(248 225 215)' }}>
                 <Toolbar>
-                    <Typography onClick={() => { handleMenuClose(); window.location.href = '/'; }} variant="h6" edge="start" className="Ember" style={{ color: 'rgb(80 8 8)', fontWeight: 'bold' }}>
+                    <Typography onClick={() => { handleMenuClose(); window.location.href = '/'; }} variant="h6" edge="start" className="Ember" style={{fontWeight: 'bold'}}>
                         Ember
                     </Typography>
                     <IconButton edge="end" color="inherit" aria-label="menu" onClick={handleMenuClick}>
