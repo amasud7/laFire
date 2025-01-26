@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="App" class="home">
-      <AppBar position="static" className="App-header" style={{ backgroundColor: '#102f4d' }}>
+      <AppBar position="static" className="App-header" style={{ backgroundColor: 'rgba(32, 36, 50, 0.78)' }}>
         <Toolbar>
           <Typography  onClick={() => { handleMenuClose(); window.location.href = '/'; }} variant="h6" edge="start" class="Ember" >
             Ember

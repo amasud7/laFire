@@ -49,24 +49,24 @@ const PlotPage = () => {
 
   return (
     <div className="App">
-      <AppBar position="static" className="App-header" style={{ backgroundColor: '#102f4d' }}>
-        <Toolbar>
-           <Typography  onClick={() => { handleMenuClose(); window.location.href = '/'; }} variant="h6" edge="start" class="Ember" >
-              Ember
-            </Typography>
-          <IconButton edge="end" color="inherit" aria-label="menu" onClick={handleMenuClick}>
-            <MenuIcon />
-          </IconButton>
-          <Menu
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={handleMenuClose}
-          >
-            <MenuItem onClick={() => { handleMenuClose(); window.location.href = '/Plot'; }}>Damages Report</MenuItem>
-            <MenuItem onClick={() => { handleMenuClose(); window.location.href = '/Learn'; }}>Learn About Fires</MenuItem>
-          </Menu>
-        </Toolbar>
-      </AppBar>
+           <AppBar position="static" className="App-header" style={{ backgroundColor: 'rgb(248 225 215)' }}>
+                <Toolbar>
+                    <Typography onClick={() => { handleMenuClose(); window.location.href = '/'; }} variant="h6" edge="start" className="Ember" style={{ color: 'rgb(80 8 8)' }}>
+                        Ember
+                    </Typography>
+                    <IconButton edge="end" color="inherit" aria-label="menu" onClick={handleMenuClick}>
+                        <MenuIcon />
+                    </IconButton>
+                    <Menu
+                        anchorEl={anchorEl}
+                        open={Boolean(anchorEl)}
+                        onClose={handleMenuClose}
+                    >
+                        <MenuItem onClick={() => { handleMenuClose(); window.location.href = '/Plot'; }}>Damages Report</MenuItem>
+                        <MenuItem onClick={() => { handleMenuClose(); window.location.href = '/Learn'; }}>Learn About Fires</MenuItem>
+                    </Menu>
+                </Toolbar>
+            </AppBar>
 
       <div class='plot-content' style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div style={{ width: '60%' }}>
