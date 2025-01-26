@@ -2,18 +2,38 @@ from flask import Flask, render_template
 import plotly.express as px
 import json
 import plotly
+import pandas as pd
 from data_parse import data_parse
 
 app = Flask(__name__)
 
+
+# data manipulation
 data = data_parse() # gets data in dataframe
+keys = list(set(data['COUNTY']))
+cost_dict = dict.fromkeys(keys, 0)
+for index, row in data.iterrows():
+    if pd.notna(row['ASSESSEDIMPROVEDVALUE']):
+        cost_dict[row['COUNTY']] += row['ASSESSEDIMPROVEDVALUE']
+sorted_cost_dict = dict(sorted(cost_dict.items()))
+
+# for fips data
+counties = pd.read_csv('fids.csv')
+counties_dict = counties.set_index('COUNTY')['FIPS'].to_dict()
+counties_dict = dict(sorted(counties_dict.items()))
+counties_dict = {key: f"0{value}" for key, value in counties_dict.items()}
+actual_FIPS = []
+for county, fips in counties_dict.items():
+    if county in keys:
+        actual_FIPS.append(fips)
+
 
 @app.route('/')
 def index():
     # Example data for counties in Los Angeles (replace with actual fire damage estimates)
-    counties = list(data['COUNTY'].unique())
-    fire_damage_cost = [50000000, 10000000, 7500000, 30000000, 15000000]  # Example fire damage cost estimates
-    county_fips = ['06037', '06059', '06111', '06071', '06065']  # FIPS codes for counties
+    counties = sorted(list(data['COUNTY'].unique()))
+    fire_damage_cost = list(sorted_cost_dict.values())  # Example fire damage cost estimates
+    county_fips = actual_FIPS  # FIPS codes for counties
 
     # Create a Choropleth map (with built-in Plotly projections)
     fig = px.choropleth(
