@@ -2,11 +2,11 @@ import requests
 import pprint
 import pandas as pd
 
-url = "https://services1.arcgis.com/jUJYIo9tSA7EHvfZ/arcgis/rest/services/POSTFIRE_MASTER_DATA_SHARE/FeatureServer/0/query?where=1%3D1&outFields=Latitude,Longitude,DAMAGE,COUNTY,STRUCTURETYPE,STRUCTURECATEGORY,SITEADDRESS,ASSESSEDIMPROVEDVALUE&outSR=4326&f=json"
 
-def data_parse(url):
+
+def data_parse():
 # this is query url for API
-    url = url
+    url = "https://services1.arcgis.com/jUJYIo9tSA7EHvfZ/arcgis/rest/services/POSTFIRE_MASTER_DATA_SHARE/FeatureServer/0/query?where=1%3D1&outFields=Latitude,Longitude,DAMAGE,COUNTY,STRUCTURETYPE,STRUCTURECATEGORY,SITEADDRESS,ASSESSEDIMPROVEDVALUE&outSR=4326&f=json"
     payload = { # parameters for POST request
         'where': '1=1',
         'outFields': 'Latitude,Longitude,DAMAGE,COUNTY,STRUCTURETYPE,STRUCTURECATEGORY,SITEADDRESS,ASSESSEDIMPROVEDVALUE',
@@ -34,4 +34,4 @@ def data_parse(url):
     # print(df.head())
     # pprint.pprint(attributes_list)
 
-pprint.pprint(data_parse(url)['COUNTY'])
+# pprint.pprint(data_parse(url)['COUNTY'])
