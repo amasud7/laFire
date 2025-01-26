@@ -37,12 +37,14 @@ def index():
 
     # Create a Choropleth map (with built-in Plotly projections)
     fig = px.choropleth(
+        data_frame=pd.DataFrame(data['COUNTY'].unique()),
         geojson="https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json",  # GeoJSON for counties
         locations=county_fips,  # County FIPS codes
         color=fire_damage_cost,  # Fire damage estimates (color scale)
         color_continuous_scale="Reds",  # Color scale for fire damages
         featureidkey="id",  # Make sure to use 'id' because the GeoJSON has FIPS as 'id'
-        scope='usa'  # Scope set to USA
+        scope='usa',  # Scope set to USA
+        hover_data=pd.DataFrame(data['COUNTY'].unique()), # Show county names on hover
     )
 
     # Customize the layout for zoom and pan
