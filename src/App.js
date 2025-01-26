@@ -25,7 +25,7 @@ function App() {
     <div className="App" class="home">
       <AppBar position="static" className="App-header" style={{ backgroundColor: 'rgba(32, 36, 50, 0.78)' }}>
         <Toolbar>
-          <Typography  onClick={() => { handleMenuClose(); window.location.href = '/'; }} variant="h6" edge="start" class="Ember" style={{color: 'rgb(247 55 55)'}}>
+          <Typography  onClick={() => { handleMenuClose(); window.location.href = '/'; }} variant="h6" edge="start" class="Ember" style={{color: 'rgb(153 30 30)'}}>
             Ember
           </Typography>
           <IconButton edge="end" color="inherit" aria-label="menu" onClick={handleMenuClick}>
