@@ -58,6 +58,10 @@ function Learn() {
             - and occasionally, arson<br></br> 
           As seen in the list above, sometimes the smallest sparks can set off devastatingly large fires.
         </Typography>
+        <Typography variant="h5" gutterBottom>
+            Why do wildfires grow so quickly?
+        </Typography>
+        ---------------------
         <Typography variant="body1" paragraph>
           Wildfires are uncontrolled fires that spread quickly and can cause significant damage to forests, wildlife, and human structures. They are often caused by lightning strikes or human activities.
         </Typography>
