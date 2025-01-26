@@ -1,0 +1,59 @@
+COUNTY,FIPS
+Alameda,006001
+Kings,006031
+Placer,006061 
+Sierra,006091
+Lake,006033 
+Plumas,006063 
+Siskiyou,006093
+Amador,006005
+Alpine,006003
+Lassen,006035
+Riverside,006065
+Solano,006095 
+Butte,006007
+Los Angeles,006037
+Sacramento,006067 
+Sonoma,006097
+Calaveras,006009
+Madera,006039 
+San Benito,006069 
+Stanislaus,006099
+Colusa,006011 
+Marin,006041 
+San Bernardino,006071
+Sutter,006101
+Contra Costa,006013
+Mariposa,006043
+San Diego,006073
+Tehama,006103
+Del Norte,006015 
+Mendocino,006045
+San Francisco,006075 
+Trinity,006105
+El Dorado,006017 
+Merced,006047
+San Joaquin,006077
+Tulare,006107 
+Fresno,006019 
+Modoc,006049 
+San Luis Obispo,006079 
+Tuolumne,006109
+Glenn,006021 
+Mono,006051 
+San Mateo,006081 
+Ventura,006111
+Humboldt,006023 
+Monterey,006053
+Santa Barbara,006083
+Yolo,006113
+Imperial,006025
+Napa,006055
+Santa Clara,006085 
+Yuba,006115
+Inyo,006027
+Nevada,006057
+Santa Cruz,006087 	 	 
+Kern,006029 
+Orange,006059 
+Shasta,006089
