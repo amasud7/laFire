@@ -23,13 +23,10 @@ function Learn() {
 
   return (
     <div className="App">
-      <AppBar position="static">
+      <AppBar position="static" className="App-header" style={{ backgroundColor: '#102f4d' }}>
         <Toolbar>
-          <Typography variant="h6">
+          <Typography  onClick={() => { handleMenuClose(); window.location.href = '/'; }} variant="h6" edge="start" class="Ember" >
             Ember
-          </Typography>
-          <Typography variant="h6" style={{ flexGrow: 1 }}>
-            Learn About Fires
           </Typography>
           <IconButton edge="end" color="inherit" aria-label="menu" onClick={handleMenuClick}>
             <MenuIcon />
@@ -39,29 +36,31 @@ function Learn() {
             open={Boolean(anchorEl)}
             onClose={handleMenuClose}
           >
-            <MenuItem onClick={() => { handleMenuClose(); window.location.href = '/plot'; }}>Damages Report</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Learn About Fires</MenuItem>
+            <MenuItem onClick={() => { handleMenuClose(); window.location.href = '/Plot'; }}>Damages Report</MenuItem>
+            <MenuItem onClick={() => { handleMenuClose(); window.location.href = '/Learn'; }}>Learn About Fires</MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>
-      <div className="content">
-        <Typography variant="h5" gutterBottom>
+      <div className="plot-content" style={{ textAlign: 'left', padding: '30px' }}>
+        <Typography variant="h5" style={{ textAlign: 'center'}} gutterBottom>
           What Causes Wildfires?
         </Typography>
         <Typography variant="body1" paragraph>
           The common causes of wildfires include the following:<br></br> 
-            - unattended campfires <br></br>
-            - machinery malfunctions and vehicle fires<br></br> 
-            - lightning strikes <br></br>
-            - cigarette butts <br></br>
-            - burning of debris <br></br>
-            - and occasionally, arson<br></br> 
+             - unattended campfires <br></br>
+             - machinery malfunctions and vehicle fires<br></br> 
+             - lightning strikes <br></br>
+             - cigarette butts <br></br>
+             - burning of debris <br></br>
+             - and occasionally, arson<br></br> 
           As seen in the list above, sometimes the smallest sparks can set off devastatingly large fires.
         </Typography>
-        <Typography variant="h5" gutterBottom>
+        <Typography variant="h5" style={{ textAlign: 'center'}} gutterBottom>
             Why do wildfires grow so quickly?
         </Typography>
-        ---------------------
+        <Typography variant="body1" paragraph>
+            Wildfires spread quickly due to a combination of factors including dry vegetation, strong winds, and high temperatures. Dry vegetation acts as fuel for the fire, while strong winds can carry embers to new locations, igniting additional fires. High temperatures can also dry out vegetation further, making it more susceptible to burning.
+        </Typography>
         <Typography variant="body1" paragraph>
           Wildfires are uncontrolled fires that spread quickly and can cause significant damage to forests, wildlife, and human structures. They are often caused by lightning strikes or human activities.
         </Typography>

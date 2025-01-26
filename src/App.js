@@ -9,6 +9,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 
+
 function App() {
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -21,10 +22,10 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App" class="home">
       <AppBar position="static" className="App-header" style={{ backgroundColor: '#102f4d' }}>
         <Toolbar>
-          <Typography variant="h6" edge="start" className="Ember">
+          <Typography  onClick={() => { handleMenuClose(); window.location.href = '/'; }} variant="h6" edge="start" class="Ember" >
             Ember
           </Typography>
           <IconButton edge="end" color="inherit" aria-label="menu" onClick={handleMenuClick}>
@@ -44,8 +45,8 @@ function App() {
         <Typography variant="h1" gutterBottom>
           Our Mission
         </Typography>
-        <Typography variant="h4" style={{ color: '#A6ACB8' }} paragraph>
-          To educate the public about the natural disasters and to assess the damages from specific incidents.
+        <Typography variant="h4" paragraph>
+          To educate the public about natural disasters and to assess the damages from specific incidents.
         </Typography>
       </div>
     </div>

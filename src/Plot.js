@@ -49,14 +49,11 @@ const PlotPage = () => {
 
   return (
     <div className="App">
-      <AppBar position="static">
+      <AppBar position="static" className="App-header" style={{ backgroundColor: '#102f4d' }}>
         <Toolbar>
-          <Typography variant="h6">
-            Ember
-          </Typography>
-          <Typography variant="h6" style={{ flexGrow: 1 }}>
-            Damage Report
-          </Typography>
+           <Typography  onClick={() => { handleMenuClose(); window.location.href = '/'; }} variant="h6" edge="start" class="Ember" >
+              Ember
+            </Typography>
           <IconButton edge="end" color="inherit" aria-label="menu" onClick={handleMenuClick}>
             <MenuIcon />
           </IconButton>
@@ -65,13 +62,13 @@ const PlotPage = () => {
             open={Boolean(anchorEl)}
             onClose={handleMenuClose}
           >
-            <MenuItem onClick={handleMenuClose}>Damages Report</MenuItem>
-            <MenuItem onClick={() => { handleMenuClose(); window.location.href = '/learn'; }}>Learn About Fires</MenuItem>
+            <MenuItem onClick={() => { handleMenuClose(); window.location.href = '/Plot'; }}>Damages Report</MenuItem>
+            <MenuItem onClick={() => { handleMenuClose(); window.location.href = '/Learn'; }}>Learn About Fires</MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>
 
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div class='plot-content' style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div style={{ width: '60%' }}>
           <h2>Estimated Fire Damage by County in California</h2>
           {graphData && (

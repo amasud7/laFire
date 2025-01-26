@@ -1,11 +1,17 @@
 .App {
   text-align: center;
   min-height: 100vh;
+  background-color: #f1d9cf;
+}
+
+.home {
+  text-align: center;
+  min-height: 100vh;
   background-image: url('./home-pg-bg.jpg');
+  background-color: rgb(40 50 83 / 60%);
   background-size: cover;
   background-position: center;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -22,13 +28,15 @@
 }
 
 .Ember {
-  color: #d7b79b;
+  color: #d27f36;
   flex-grow: 1 ;
   text-align: left;
-  font-size: 1.25em;
-  font-family: url('./Noto_Sans/NotoSans-VariableFont_wdth\,wght.ttf'); 
-  font-weight: 700;
+  font-family:'Calibri';
+  font-weight: bold;
+  font-size: 2em;
 }
+
+
 .App-link {
   color: #4bb2ce;
 }
@@ -36,7 +44,15 @@
 
 .content {
   color: #EEE2DC;
-  padding: 50px;
   max-height: calc(100vh - 64px); /* Adjust based on AppBar height */
   overflow-y: auto;
+  flex-grow: 1;
+  padding: 50px;
+  padding-left: 30%;
+  padding-right: 30%;
+}
+
+.plot-content {
+  color: rgb(32, 42, 77);
+
 }
