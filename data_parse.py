@@ -36,7 +36,7 @@ def data_parse():
 
 # pprint.pprint(list(set(data_parse()['COUNTY'])))
 data = data_parse()
-keys = list(set(data_parse()['COUNTY']))
+keys = list(set(data['COUNTY']))
 values = []
 
 cost_dict = dict.fromkeys(keys, 0)
@@ -46,4 +46,14 @@ for index, row in data.iterrows():
         cost_dict[row['COUNTY']] += row['ASSESSEDIMPROVEDVALUE']
 
 
-print(cost_dict)
+counties = pd.read_csv('fids.csv')
+counties_dict = counties.set_index('COUNTY')['FIPS'].to_dict()
+counties_dict = dict(sorted(counties_dict.items()))
+counties_dict = {key: f"0{value}" for key, value in counties_dict.items()}
+actual_FIPS = []
+for county, fips in counties_dict.items():
+    if county in keys:
+        actual_FIPS.append(fips)
+print(actual_FIPS)
+print(sorted(keys))
+
