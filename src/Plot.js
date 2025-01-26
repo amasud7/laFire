@@ -14,7 +14,6 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 
-
 const PlotPage = () => {
   const [graphData, setGraphData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -49,7 +48,6 @@ const PlotPage = () => {
   }
 
   return (
-
     <div className="App">
       <AppBar position="static">
         <Toolbar>
@@ -73,15 +71,38 @@ const PlotPage = () => {
         </Toolbar>
       </AppBar>
 
-      <div>
-        <h2>Estimated Fire Damage by County in California</h2>
-        {graphData && (
-          <Plot
-            data={graphData.data}   // Data for the choropleth map
-            layout={graphData.layout}  // Layout configuration for the map
-            style={{ width: '60%', height: '100%' }}
-          />
-        )}
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ width: '60%' }}>
+          <h2>Estimated Fire Damage by County in California</h2>
+          {graphData && (
+            <Plot
+              data={graphData.data}   // Data for the choropleth map
+              layout={graphData.layout}  // Layout configuration for the map
+              style={{ width: '100%', height: '100%' }}
+            />
+          )}
+        </div>
+        <div style={{ width: '35%', padding: '20px' }}>
+          <h2>Predicted Damage Report</h2>
+          <p>Number of buildings in the dataset: 797</p>
+          <p>Percentage of buildings with damage:</p>
+          <ul>
+            <li>No Damage: 49.4%</li>
+            <li>Affected (1-9%): 8.4%</li>
+            <li>Minor (10-25%): 4.6%</li>
+            <li>Major (26-50%): 1.1%</li>
+            <li>Destroyed (greater than 50%): 26.2%</li>
+            <li>Inaccessible: 10.3%</li>
+          </ul>
+          <p>Drought Levels:</p>
+          <ul>
+            <li>D0: 26 counties</li>
+            <li>D1: 12 counties</li>
+            <li>D2: 6 counties</li>
+            <li>D3: 5 counties</li>
+            <li>D4: 0 counties</li>
+          </ul>
+        </div>
       </div>
     </div>
   );

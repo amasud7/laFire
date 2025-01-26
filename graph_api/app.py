@@ -48,11 +48,8 @@ def index():
         locationmode="geojson-id",
         color_continuous_scale="Reds",  # Color scale for fire damages
         featureidkey="id",  # Make sure to use 'id' because the GeoJSON has FIPS as 'id'
-<<<<<<< HEAD:app.py
         scope='usa',  # Scope set to USA
         hover_data=pd.DataFrame(data['COUNTY'].unique()), # Show county names on hover
-=======
->>>>>>> 928768273877f0007d92ea6087f7cc7880289361:graph_api/app.py
     )
 
     # Customize the layout for zoom and pan
@@ -63,10 +60,13 @@ def index():
 
     fig.update_layout(
     geo_scope='usa',  # Set the map scope to USA
+    coloraxis_colorbar=dict(
+        title='Fire Damage Cost',  # Title for the color bar
+    )
     )
 
     fig.update_layout(
-        title_text='Estimated Fire Damage Cost by County in Los Angeles',
+        # title_text='Estimated Fire Damage Cost by County in California',
         geo=dict(
             scope='usa',  # Focus on the USA
             showland=True,  # Show land
